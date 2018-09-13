@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory('App\Models\Team', 30)->create()->each(function($model){
+            factory('App\Models\Player', 15)->create(['team_id' => $model->id]);
+        });
     }
 }
