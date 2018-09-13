@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    protected $fillable = ['name', 'logo'];
+    protected $fillable = ['name'];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany

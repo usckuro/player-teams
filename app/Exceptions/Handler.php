@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +48,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof HttpException) {
+            if ($exception->getStatusCode() == 503)
+                return new Response(['message' => 'Page in maintenance'], $exception->getStatusCode());
+
+            return new Response(['message' => $exception->getMessage()], $exception->getStatusCode());
+        }
         return parent::render($request, $exception);
     }
 }
