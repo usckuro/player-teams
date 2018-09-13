@@ -22,7 +22,7 @@ class StorePlayerRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:160'
+            'name' => 'required|min:1|max:160'
         ];
     }
 }

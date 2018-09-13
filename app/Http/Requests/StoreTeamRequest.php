@@ -22,7 +22,7 @@ class StoreTeamRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:80'
+            'name' => 'required|min:1|max:80'
         ];
     }
 }

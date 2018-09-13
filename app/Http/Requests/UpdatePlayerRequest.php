@@ -22,7 +22,7 @@ class UpdatePlayerRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'max:160|min:5'
+            'name' => 'max:160|min:1'
         ];
     }
 }
