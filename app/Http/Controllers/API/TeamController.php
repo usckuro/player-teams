@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\ResponseController;
-use App\Http\Requests\StorePlayerRequest;
+use App\Http\Requests\StoreTeamRequest;
 use App\Models\Team;
 
 class TeamController extends ResponseController
@@ -26,7 +26,7 @@ class TeamController extends ResponseController
      * @param StorePlayerRequest $request
      * @return mixed
      */
-    public function store(StorePlayerRequest $request)
+    public function store(StoreTeamRequest $request)
     {
         $team = Team::create($request->all());
         return ResponseController::Response($team);
